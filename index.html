@@ -549,6 +549,20 @@ section {
     transform: translateY(0);
   }
 }
+    /* PREMIUM PORTFOLIO HOVER */
+
+.portfolio .work {
+  transition: transform 0.4s ease,
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
+  cursor: pointer;
+}
+
+.portfolio .work:hover {
+  transform: translateY(-10px) scale(1.03);
+  border-color: var(--gold);
+  box-shadow: 0 12px 35px rgba(215,173,98,0.22);
+}
   </style>
 </head>
 <body>
