@@ -362,21 +362,23 @@ section {
 .premium-menu {
   position: absolute;
   top: calc(100% + 12px);
-  right: 20px;
-  max-width: calc(100vw - 40px);
-  padding: 14px;
+  right: 10px;
+  width: max-content;
+  max-width: calc(100vw - 20px);
+  padding: 12px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 10px;
-  background: rgba(15, 15, 15, 0.97);
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 8px;
+  overflow-x: auto;
+  background: rgba(15, 15, 15, 0.98);
   border: 1px solid rgba(215, 173, 98, 0.45);
-  border-radius: 18px;
+  border-radius: 15px;
   backdrop-filter: blur(18px);
   box-shadow: 0 15px 45px rgba(0,0,0,0.6);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-15px) scale(0.96);
+  transform: translateY(-15px);
   transition: 0.35s ease;
 }
 
@@ -387,6 +389,7 @@ section {
 }
 
 .premium-menu a {
+  flex-shrink: 0;
   color: #e8d6b5;
   text-decoration: none;
   padding: 12px 17px;
