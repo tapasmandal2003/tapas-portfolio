@@ -208,9 +208,81 @@ section {
     font-size: 11px;
   }
 }
+ /* PREMIUM LOADING ANIMATION */
+
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #090909;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#loader img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  animation: logoPulse 1.5s infinite alternate;
+}
+
+#loader h2 {
+  color: #d7ad62;
+  letter-spacing: 4px;
+  margin-top: 15px;
+  font-size: 20px;
+}
+
+#loader p {
+  color: #aaa39a;
+  letter-spacing: 5px;
+  font-size: 10px;
+  margin-top: 5px;
+}
+
+.loading-line {
+  width: 120px;
+  height: 2px;
+  background: #29251f;
+  margin-top: 25px;
+  overflow: hidden;
+}
+
+.loading-line::after {
+  content: "";
+  display: block;
+  width: 40%;
+  height: 100%;
+  background: #d7ad62;
+  animation: loadingMove 1s infinite;
+}
+
+@keyframes logoPulse {
+  from { transform: scale(0.95); }
+  to { transform: scale(1.05); }
+}
+
+@keyframes loadingMove {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(300%); }
+}
+
+#loader.hide {
+  opacity: 0;
+  visibility: hidden;
+}
   </style>
 </head>
 <body>
+ <div id="loader">
+  <img src="logo.png.png" alt="TM Logo">
+  <h2>TAPAS MANDAL</h2>
+  <p>GRAPHIC DESIGNER</p>
+  <div class="loading-line"></div>
+ </div>
   <header>
     <nav class="wrap">
       <a class="brand" href="#home"><img src="logo.png.png" alt="Tapas Mandal Logo" style="height:40px;width:auto;display:block;"></a>
@@ -289,5 +361,12 @@ section {
     </section>
   </main>
   <footer class="wrap"><span>© 2026 Tapas Mandal. All rights reserved.</span><span>Designed with creativity.</span></footer>
+<script>
+window.addEventListener("load", function() {
+  setTimeout(function() {
+    document.getElementById("loader").classList.add("hide");
+  }, 700);
+});
+</script>
 </body>
 </html>
