@@ -314,6 +314,115 @@ section {
 #backToTop.show {
   display: block;
 }
+ /* FUTURISTIC THREE DOT MENU */
+
+.premium-header {
+  position: relative;
+  z-index: 1000;
+}
+
+.premium-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-toggle {
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--gold);
+  border-radius: 14px;
+  background: #17130d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+
+.menu-toggle span {
+  width: 5px;
+  height: 5px;
+  background: var(--gold);
+  border-radius: 50%;
+  transition: 0.4s ease;
+}
+
+.menu-toggle:hover {
+  background: var(--gold);
+  transform: rotate(90deg);
+}
+
+.menu-toggle:hover span {
+  background: #090909;
+}
+
+.premium-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 20px;
+  max-width: calc(100vw - 40px);
+  padding: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+  background: rgba(15, 15, 15, 0.97);
+  border: 1px solid rgba(215, 173, 98, 0.45);
+  border-radius: 18px;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 15px 45px rgba(0,0,0,0.6);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-15px) scale(0.96);
+  transition: 0.35s ease;
+}
+
+.premium-menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.premium-menu a {
+  color: #e8d6b5;
+  text-decoration: none;
+  padding: 12px 17px;
+  border: 1px solid #383027;
+  border-radius: 10px;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(15px);
+  transition: 0.3s ease;
+}
+
+.premium-menu.active a {
+  animation: menuReveal 0.4s ease forwards;
+}
+
+.premium-menu.active a:nth-child(1) { animation-delay: 0.05s; }
+.premium-menu.active a:nth-child(2) { animation-delay: 0.10s; }
+.premium-menu.active a:nth-child(3) { animation-delay: 0.15s; }
+.premium-menu.active a:nth-child(4) { animation-delay: 0.20s; }
+.premium-menu.active a:nth-child(5) { animation-delay: 0.25s; }
+.premium-menu.active a:nth-child(6) { animation-delay: 0.30s; }
+.premium-menu.active a:nth-child(7) { animation-delay: 0.35s; }
+
+.premium-menu a:hover {
+  background: var(--gold);
+  color: #090909;
+  border-color: var(--gold);
+}
+
+@keyframes menuReveal {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
   </style>
 </head>
 <body>
@@ -324,12 +433,32 @@ section {
   <div class="loading-line"></div>
  </div>
   <header>
-    <nav class="wrap">
-      <a class="brand" href="#home"><img src="logo.png.png" alt="Tapas Mandal Logo" style="height:40px;width:auto;display:block;"></a>
-      <div class="navlinks">
-        <a href="#about">About</a><a href="#services">Services</a><a href="#work">Portfolio</a><a href="#contact">Contact</a>
-      </div>
-    </nav>
+    class="premium-header">
+  <nav class="wrap premium-nav">
+
+    <a class="brand" href="#home">
+      <img src="logo.png.png" alt="Tapas Mandal Logo"
+      style="height:40px;width:auto;display:block;">
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </nav>
+
+  <div class="premium-menu" id="premiumMenu">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#work">Portfolio</a>
+    <a href="#contact">Contact</a>
+    <a href="https://www.fiverr.com/tapasmandal00" target="_blank">Fiverr ↗</a>
+    <a href="https://www.instagram.com/_tapas_mandal_/" target="_blank">Instagram ↗</a>
+  </div>
   </header>
 
   <main>
@@ -427,5 +556,30 @@ backToTop.addEventListener("click", function() {
   });
 });
 </script>
+  <script>
+const menuToggle = document.getElementById("menuToggle");
+const premiumMenu = document.getElementById("premiumMenu");
+
+menuToggle.addEventListener("click", function() {
+  premiumMenu.classList.toggle("active");
+
+  const isOpen = premiumMenu.classList.contains("active");
+  menuToggle.setAttribute("aria-expanded", isOpen);
+});
+
+premiumMenu.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", function() {
+    premiumMenu.classList.remove("active");
+    menuToggle.setAttribute("aria-expanded", "false");
+  });
+});
+
+document.addEventListener("click", function(event) {
+  if (!event.target.closest(".premium-header")) {
+    premiumMenu.classList.remove("active");
+    menuToggle.setAttribute("aria-expanded", "false");
+  }
+});
+  </script>
 </body>
 </html>
