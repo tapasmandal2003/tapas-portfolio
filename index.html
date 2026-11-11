@@ -609,6 +609,18 @@ section {
 .portfolio .work:hover::before {
   left: 150%;
 }
+    /* REMOVE BLUE TAP HIGHLIGHT */
+
+.portfolio .work,
+.portfolio .work * {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.portfolio .work:focus,
+.portfolio .work:active {
+  outline: none;
+}
   </style>
 </head>
 <body>
