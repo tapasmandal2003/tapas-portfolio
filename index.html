@@ -762,6 +762,26 @@ section {
   from { left: -120%; }
   to { left: 160%; }
 }
+/* TAPAS PHOTO BACKGROUND */
+.hero {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("tapas-photo.jpg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: auto 90%;
+  opacity: 0.10;
+  filter: grayscale(100%);
+  pointer-events: none;
+  z-index: -1;
+}
+    
   </style>
 </head>
 <body>
