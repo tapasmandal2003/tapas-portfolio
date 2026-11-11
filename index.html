@@ -378,8 +378,8 @@ section {
   pointer-events: none;
   transform: translateY(-15px);
   transition: opacity 0.35s ease,
-              transform 0.35s ease,
-              visibility 0.35s ease;
+            transform 0.35s ease,
+            visibility 0s linear 0.35s;
 }
 
 .premium-menu.active {
@@ -387,6 +387,9 @@ section {
   visibility: visible;
   pointer-events: auto;
   transform: translateY(0);
+  transition: opacity 0.35s ease,
+            transform 0.35s ease,
+            visibility 0s;
 }
 
 .premium-menu a {
