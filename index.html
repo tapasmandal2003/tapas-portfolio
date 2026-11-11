@@ -909,23 +909,6 @@ document.querySelectorAll(".reveal").forEach(element => {
 });
   </script>
 <div class="quantum-click-effect" id="quantumEffect"></div>
-<script>
-const quantumEffect = document.getElementById("quantumEffect");
 
-document.addEventListener("pointerdown", function(event) {
-  const target = event.target.closest(
-    "a, button, input[type='button'], input[type='submit']"
-  );
-
-  if (!target || !quantumEffect) return;
-
-  quantumEffect.style.left = event.clientX + "px";
-  quantumEffect.style.top = event.clientY + "px";
-
-  quantumEffect.classList.remove("active");
-  void quantumEffect.offsetWidth;
-  quantumEffect.classList.add("active");
-});
-</script>
 </body>
 </html>
