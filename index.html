@@ -771,12 +771,15 @@ section {
 .hero::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background-image: url("tapas-photo.jpg");
+  top: 0;
+  right: 0;
+  width: 65%;
+  height: 100%;
+  background-image: url("./tapas-photo.jpg");
   background-repeat: no-repeat;
-  background-position: right center;
-  background-size: auto 90%;
-  opacity: 0.10;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.22;
   filter: grayscale(100%);
   pointer-events: none;
   z-index: -1;
