@@ -775,14 +775,16 @@ section {
   right: 0;
   width: 65%;
   height: 100%;
-  background-image: url("./tapas-photo.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  opacity: 0.22;
+  background: url("./tapas-photo.jpg") center / contain no-repeat;
+  opacity: 0.18;
   filter: grayscale(100%);
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
 }
     
   </style>
@@ -844,7 +846,7 @@ section {
           <div class="eyebrow">A little about me</div>
           <h2>Design with purpose.</h2>
         </div>
-        <p>I'm a graphic designer rrrrrrr focused on creating attractive and useful visual content. From a brand's first impression to everyday social media communication, I aim to make every design clear, balanced and memorable.</p>
+        <p>I'm a graphic designer focused on creating attractive and useful visual content. From a brand's first impression to everyday social media communication, I aim to make every design clear, balanced and memorable.</p>
       </div>
     </section>
 
