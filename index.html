@@ -274,6 +274,34 @@ section {
   opacity: 0;
   visibility: hidden;
 }
+ /* BACK TO TOP BUTTON */
+
+#backToTop {
+  position: fixed;
+  bottom: 25px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  background: #17130d;
+  color: var(--gold);
+  font-size: 25px;
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+  transition: 0.3s ease;
+}
+
+#backToTop:hover {
+  background: var(--gold);
+  color: #090909;
+  transform: translateY(-4px);
+}
+
+#backToTop.show {
+  display: block;
+}
   </style>
 </head>
 <body>
@@ -366,6 +394,25 @@ window.addEventListener("load", function() {
   setTimeout(function() {
     document.getElementById("loader").classList.add("hide");
   }, 700);
+});
+</script>
+<button id="backToTop" aria-label="Back to top">↑</button>
+<script>
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", function() {
+  if (window.scrollY > 300) {
+    backToTop.classList.add("show");
+  } else {
+    backToTop.classList.remove("show");
+  }
+});
+
+backToTop.addEventListener("click", function() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 });
 </script>
 </body>
