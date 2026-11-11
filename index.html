@@ -659,6 +659,44 @@ section {
   transform: translateY(-3px);
   box-shadow: 0 10px 30px #d7ad6222;
 }
+    /* PREMIUM HOME BUTTONS */
+.hero .actions .btn {
+  position: relative;
+  padding: 15px 28px;
+  border: 1px solid var(--gold);
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hero .actions .btn.primary {
+  background: linear-gradient(135deg, #e8c47d, #b88a42);
+  color: #090909;
+  box-shadow: 0 5px 20px rgba(215,173,98,0.15);
+}
+
+.hero .actions .btn:not(.primary) {
+  background: transparent;
+  color: var(--gold);
+}
+
+.hero .actions .btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(215,173,98,0.3);
+}
+
+.hero .actions .btn.primary:hover {
+  background: linear-gradient(135deg, #f4d99c, #d7ad62);
+}
+
+.hero .actions .btn:not(.primary):hover {
+  background: var(--gold);
+  color: #090909;
+}
   </style>
 </head>
 <body>
