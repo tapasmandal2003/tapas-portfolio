@@ -360,18 +360,19 @@ section {
 }
 
 .premium-menu {
+.premium-menu {
   position: absolute;
   top: calc(100% + 12px);
   right: 5%;
   width: 220px;
   padding: 12px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column !important;
+  flex-wrap: nowrap !important;
   gap: 8px;
-  background: rgba(15, 15, 15, 0.98);
-  border: 1px solid rgba(215, 173, 98, 0.45);
+  background: #121212;
+  border: 1px solid var(--gold);
   border-radius: 15px;
-  box-shadow: 0 15px 45px rgba(0,0,0,0.6);
   opacity: 0;
   visibility: hidden;
   transform: translateY(-15px);
@@ -385,14 +386,13 @@ section {
 }
 
 .premium-menu a {
-  display: block;
+  display: block !important;
   width: 100%;
-  padding: 12px 15px;
-  color: #e8d6b5;
+  text-align: center;
+  padding: 12px;
+  color: var(--gold2);
   border: 1px solid #383027;
   border-radius: 10px;
-  font-size: 14px;
-  text-align: center;
   opacity: 0;
   transform: translateX(15px);
 }
