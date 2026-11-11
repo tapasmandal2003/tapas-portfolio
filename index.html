@@ -697,6 +697,39 @@ section {
   background: var(--gold);
   color: #090909;
 }
+ /* QUANTUM CLICK EFFECT */
+.quantum-click-effect {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.quantum-click-effect.active {
+  animation: quantumBurst 0.65s ease-out forwards;
+}
+
+@keyframes quantumBurst {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0);
+    box-shadow: 0 0 5px var(--gold);
+  }
+  60% {
+    opacity: 1;
+    box-shadow: 0 0 25px var(--gold);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(8);
+    box-shadow: 0 0 45px var(--gold);
+  }
+}
   </style>
 </head>
 <body>
@@ -876,5 +909,23 @@ document.querySelectorAll(".reveal").forEach(element => {
 });
   </script>
 <div class="quantum-click-effect" id="quantumEffect"></div>
+<script>
+const quantumEffect = document.getElementById("quantumEffect");
+
+document.addEventListener("pointerdown", function(event) {
+  const target = event.target.closest(
+    "a, button, input[type='button'], input[type='submit']"
+  );
+
+  if (!target || !quantumEffect) return;
+
+  quantumEffect.style.left = event.clientX + "px";
+  quantumEffect.style.top = event.clientY + "px";
+
+  quantumEffect.classList.remove("active");
+  void quantumEffect.offsetWidth;
+  quantumEffect.classList.add("active");
+});
+</script>
 </body>
 </html>
