@@ -58,6 +58,58 @@
   position: relative;
   z-index: 2;
 }
+/* PROFESSIONAL HOVER EFFECTS */
+
+.navlinks a {
+  transition: color 0.3s ease;
+}
+
+.navlinks a:hover {
+  color: var(--gold);
+}
+
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  border-color: var(--gold);
+  box-shadow: 0 12px 30px rgba(215,173,98,0.10);
+}
+
+.work {
+  transition: all 0.3s ease;
+}
+
+.work:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+  background: linear-gradient(145deg,#302313,#121212);
+}
+
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--gold2);
+  color: #090909;
+}
+
+::selection {
+  background: var(--gold);
+  color: #090909;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+section {
+  scroll-margin-top: 75px;
+}
   </style>
 </head>
 <body>
