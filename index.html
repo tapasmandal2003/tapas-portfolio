@@ -730,6 +730,38 @@ section {
     box-shadow: 0 0 45px var(--gold);
   }
 }
+
+    /* PREMIUM LIGHT SWEEP */
+.light-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.light-sweep::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -120%;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(
+    110deg,
+    transparent,
+    rgba(255,255,255,0.45),
+    transparent
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+}
+
+.light-sweep.sweep-active::after {
+  animation: lightSweep 0.7s ease-out;
+}
+
+@keyframes lightSweep {
+  from { left: -120%; }
+  to { left: 160%; }
+}
   </style>
 </head>
 <body>
