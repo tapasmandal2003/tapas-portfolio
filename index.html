@@ -586,6 +586,29 @@ section {
 .portfolio .work:hover span {
   letter-spacing: 2px;
 }
+    /* GOLDEN SHINE EFFECT */
+
+.portfolio .work::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(215,173,98,0.18),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: left 0.8s ease;
+  pointer-events: none;
+}
+
+.portfolio .work:hover::before {
+  left: 150%;
+}
   </style>
 </head>
 <body>
