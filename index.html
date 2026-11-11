@@ -621,6 +621,25 @@ section {
 .portfolio .work:active {
   outline: none;
 }
+    /* PREMIUM 3D CARD EFFECT */
+@media (hover: hover) and (pointer: fine) {
+  .portfolio .work,
+  .services .card {
+    transform-style: preserve-3d;
+    transition: transform 0.45s ease,
+                box-shadow 0.45s ease;
+  }
+
+  .portfolio .work:hover {
+    transform: perspective(900px) rotateX(3deg)
+               rotateY(-3deg) translateY(-8px) scale(1.02);
+  }
+
+  .services .card:hover {
+    transform: perspective(900px) rotateX(2deg)
+               rotateY(-2deg) translateY(-5px);
+  }
+}
   </style>
 </head>
 <body>
