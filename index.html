@@ -970,6 +970,40 @@ section {
     padding: 20px;
   }
 }
+    /* PORTFOLIO IMAGE LIGHTBOX */
+.image-preview {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.95);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.image-preview.active {
+  display: flex;
+}
+
+.image-preview img {
+  max-width: 95%;
+  max-height: 85vh;
+  object-fit: contain;
+  border: 1px solid #d4af37;
+  border-radius: 10px;
+}
+
+#closePreview {
+  position: absolute;
+  top: 15px;
+  right: 22px;
+  background: transparent;
+  color: #d4af37;
+  border: none;
+  font-size: 42px;
+  cursor: pointer;
+}
   </style>
 </head>
 <body>
@@ -1217,6 +1251,36 @@ document.querySelectorAll(".reveal").forEach(element => {
   <button id="closePreview" type="button" aria-label="Close preview">&times;</button>
   <img id="previewImage" src="" alt="Portfolio Preview">
 </div>
-  
+ <script>
+const preview = document.getElementById("imagePreview");
+const previewImage = document.getElementById("previewImage");
+const closePreview = document.getElementById("closePreview");
+
+document.querySelectorAll(".portfolio .work img").forEach(function(img) {
+  img.style.cursor = "zoom-in";
+
+  img.addEventListener("click", function() {
+    previewImage.src = img.src;
+    previewImage.alt = img.alt;
+    preview.classList.add("active");
+  });
+});
+
+closePreview.addEventListener("click", function() {
+  preview.classList.remove("active");
+});
+
+preview.addEventListener("click", function(e) {
+  if (e.target === preview) {
+    preview.classList.remove("active");
+  }
+});
+
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") {
+    preview.classList.remove("active");
+  }
+});
+ </script> 
 </body>
 </html>
