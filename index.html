@@ -871,6 +871,53 @@ section {
   background: transparent !important;
   display: block;
 }
+    /* INDIVIDUAL PORTFOLIO BOX SIZES */
+
+.portfolio {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  grid-auto-rows: max-content;
+}
+
+.portfolio .work {
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 0 !important;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.portfolio .work img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain;
+  display: block;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.portfolio .work strong {
+  padding: 14px 15px 5px;
+}
+
+.portfolio .work span {
+  padding: 0 15px 16px;
+}
+
+@media (max-width: 600px) {
+  .portfolio {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .portfolio .work {
+    width: 100%;
+  }
+}
   </style>
 </head>
 <body>
