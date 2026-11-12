@@ -831,11 +831,12 @@ section {
 
 .portfolio .work img {
   width: 100%;
-  height: 260px !important;
+  height: auto !important;
+  max-height: none;
   object-fit: contain;
   display: block;
-  padding: 12px;
-  background: #111;
+  padding: 0;
+  background: transparent;
 }
 
 .portfolio .work strong {
@@ -850,10 +851,6 @@ section {
   .portfolio {
     grid-template-columns: 1fr;
     gap: 20px;
-  }
-
-  .portfolio .work img {
-    height: 230px !important;
   }
 
   .portfolio .work:hover {
