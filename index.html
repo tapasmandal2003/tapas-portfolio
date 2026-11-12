@@ -860,6 +860,20 @@ section {
     transform: none;
   }
 }
+    /* CRUNCH BITE ORIGINAL IMAGE SIZE */
+
+.portfolio .work:has(.crunch-image) {
+  align-self: start;
+}
+
+.portfolio .crunch-image {
+  width: 100%;
+  height: auto !important;
+  object-fit: contain;
+  padding: 0 !important;
+  background: transparent !important;
+  display: block;
+}
   </style>
 </head>
 <body>
@@ -950,7 +964,7 @@ section {
   </div>
 
   <div class="work">
-    <img src="crunch-bite.jpg.jpg" alt="Crunch Bite Product Advertisement" style="width:100%;height:auto;display:block;">
+    <img src="crunch-bite.jpg.jpg" alt="Crunch Bite Product Advertisement" class="crunch-image">
     <strong>Crunch Bite</strong>
     <span>PRODUCT ADVERTISEMENT</span>
   </div>
