@@ -1065,6 +1065,28 @@ section {
     max-height: 55vh;
   }
 }
+    /* TYPING ANIMATION */
+.typing-text {
+  margin-top: 12px;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+#typing {
+  color: #d4af37;
+  font-weight: bold;
+}
+
+.cursor {
+  color: #d4af37;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+  }
   </style>
 </head>
 <body>
@@ -1105,6 +1127,9 @@ section {
       <div>
         <div class="eyebrow">Independent Graphic Designer</div>
         <h1>Graphic Designer<br><span>Tapas Mandal.</span></h1>
+<p class="typing-text">
+  I am a <span id="typing"></span><span class="cursor">|</span>
+</p>
         <p>Hi, I'm Tapas Mandal. I create clean, memorable and thoughtful designs that help brands and creators stand out.</p>
         <div class="actions">
           <a class="btn primary" href="#work">Explore My Work</a>
@@ -1393,6 +1418,45 @@ preview.addEventListener("click", function(e) {
 document.addEventListener("keydown", function(e) {
   if (e.key === "Escape") closeImagePreview();
 });
+  </script>
+  <script>
+const words = [
+  "Graphic Designer",
+  "Logo Designer",
+  "Brand Identity Designer"
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typeEffect() {
+  const element = document.getElementById("typing");
+  if (!element) return;
+
+  const word = words[wordIndex];
+  element.textContent = word.substring(0, charIndex);
+
+  if (!deleting) {
+    charIndex++;
+    if (charIndex > word.length) {
+      deleting = true;
+      setTimeout(typeEffect, 1200);
+      return;
+    }
+  } else {
+    charIndex--;
+    if (charIndex < 0) {
+      deleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+      charIndex = 0;
+    }
+  }
+
+  setTimeout(typeEffect, deleting ? 50 : 100);
+}
+
+typeEffect();
   </script>
 </body>
 </html>
