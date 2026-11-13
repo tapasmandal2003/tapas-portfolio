@@ -1121,6 +1121,63 @@ body {
   opacity: 0.12;
   filter: brightness(0.45);
 }
+    /* HERO PHOTO RIGHT SIDE */
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 25px;
+}
+
+.person-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-person {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* MOBILE LAYOUT */
+@media (max-width: 600px) {
+  .hero {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 8px;
+  }
+
+  .hero-person {
+    width: 100%;
+    max-width: 180px;
+  }
+
+  .hero h1 {
+    font-size: 27px;
+    line-height: 1.2;
+  }
+
+  .hero p {
+    font-size: 12px;
+  }
+
+  .hero .typing-text {
+    font-size: 13px;
+  }
+
+  .hero .actions {
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .hero .btn {
+    font-size: 10px;
+    padding: 8px 10px;
+  }
+}
   </style>
 </head>
 <body>
@@ -1172,11 +1229,9 @@ body {
           <a class="btn primary" href="#work">Explore My Work</a>
           <a class="btn" href="https://www.fiverr.com/tapasmandal00" target="_blank" rel="noopener">Hire Me on Fiverr</a>
         </div>
-      </div>
-      <div class="visual" aria-label="Tapas Mandal logo">
-  <img src="logo.png.png" alt="Tapas Mandal Logo" class="hero-logo">
-      </div>
-    </div>
+      <div class="visual person-visual">
+  <img src="tapas-png.png" alt="Tapas Mandal" class="hero-person">
+</div>
 
     <section id="about" class="reveal">
       <div class="wrap about">
