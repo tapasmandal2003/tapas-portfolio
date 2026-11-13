@@ -1184,6 +1184,33 @@ body {
   padding: 8px 10px;
 }
 }
+
+    /* MOBILE ONLY */
+@media (max-width: 600px) {
+
+  .hero {
+    position: relative;
+  }
+
+  /* Explore My Work - photo ke upar */
+  .hero .actions .btn.primary {
+    position: absolute;
+    right: 12px;
+    bottom: 35px;
+    z-index: 10;
+    width: 180px;
+    font-size: 13px;
+    padding: 12px 8px;
+    text-align: center;
+  }
+
+  /* Hire Me on Fiverr - chhota button */
+  .hero .actions .btn:not(.primary) {
+    font-size: 11px;
+    padding: 8px 10px;
+    white-space: nowrap;
+  }
+}
   </style>
 </head>
 <body>
