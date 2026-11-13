@@ -1087,9 +1087,26 @@ section {
     opacity: 0;
   }
   }
+    html, body {
+  background: transparent !important;
+}
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none;
+}
   </style>
 </head>
 <body>
+  <video id="bg-video" autoplay muted loop playsinline>
+  <source src="Dark Cinematic Background.mp4" type="video/mp4">
+  </video>
  <div id="loader">
   <img src="logo.png.png" alt="TM Logo">
   <h2>TAPAS MANDAL</h2>
