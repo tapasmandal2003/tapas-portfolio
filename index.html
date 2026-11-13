@@ -1175,14 +1175,19 @@ body {
   }
 
   .hero .actions {
-    gap: 6px;
-    flex-wrap: wrap;
-  }
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
 
-  .hero .btn {
-    font-size: 10px;
-    padding: 8px 10px;
-  }
+.hero .btn {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 10px;
+  padding: 10px 5px;
+}
 }
   </style>
 </head>
