@@ -1194,6 +1194,58 @@ body {
 
 
 }
+    /* ABOUT SECTION PHOTO */
+.about-layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  align-items: center;
+  gap: 35px;
+}
+
+.about-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+}
+
+.about-photo img {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: contain;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* MOBILE ONLY */
+@media (max-width: 480px) {
+  .about-layout {
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 12px;
+  }
+
+  .about-photo img {
+    width: 100%;
+    max-width: 150px;
+  }
+
+  .about-content h2 {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .about-content p {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .about-layout .section-head {
+    margin-bottom: 12px;
+  }
+}
   </style>
 </head>
 <body>
