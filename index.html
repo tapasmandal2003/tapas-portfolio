@@ -1249,6 +1249,17 @@ body {
     margin-bottom: 12px;
   }
 }
+    /* ABOUT PHOTO SLIDE ANIMATION */
+.about-photo img {
+  opacity: 0;
+  transform: translateX(-120px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.about-photo img.show-photo {
+  opacity: 1;
+  transform: translateX(0);
+}
   </style>
 </head>
 <body>
