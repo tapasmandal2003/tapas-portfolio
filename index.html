@@ -1650,5 +1650,23 @@ function typeEffect() {
 
 typeEffect();
   </script>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const photo = document.querySelector(".about-photo img");
+
+  if (!photo) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        photo.classList.add("show-photo");
+        observer.unobserve(photo);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  observer.observe(photo);
+});
+  </script>
 </body>
 </html>
