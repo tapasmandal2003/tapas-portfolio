@@ -1508,15 +1508,16 @@ const revealObserver = new IntersectionObserver((entries) => {
     }
   });
 }, {
-  threshold: 0.15
+  threshold: 0.01,
+  rootMargin: "0px 0px 100px 0px"
 });
 
 document.querySelectorAll(".reveal").forEach(element => {
   revealObserver.observe(element);
 });
-  </script>
-<div class="quantum-click-effect" id="quantumEffect"></div>
+</script>
 
+<div class="quantum-click-effect" id="quantumEffect"></div>
   <!-- PORTFOLIO IMAGE PREVIEW -->
 <div id="imagePreview" class="image-preview">
   <div class="preview-content">
