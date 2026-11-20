@@ -9,7 +9,8 @@
 
   <title>Tapas Mandal | Professional Graphic Designer</title>
 
-  <meta name="description" content="Tapas Mandal is a freelance graphic designer specializing in logo design, branding, social media posts, banners, advertisements and book covers.">
+  <meta name="description" content="Explore the graphic design portfolio of Tapas Mandal, creating logos, brand identity, social media designs, advertisements, banners and book covers.">
+  <meta name="keywords" content="Tapas Mandal, graphic designer, logo design, social media design, branding, book cover design, banner design">
 
   <meta name="robots" content="index, follow">
   <meta name="author" content="Tapas Mandal">
@@ -19,6 +20,7 @@
   <link rel="canonical" href="https://tapas-portfolio-theta.vercel.app/">
 
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://tapas-portfolio-theta.vercel.app/logo.png.png">
   <meta property="og:title" content="Tapas Mandal | Professional Graphic Designer">
   <meta property="og:description" content="Creative logo design, branding, social media graphics, banners and book covers by Tapas Mandal.">
   <meta property="og:url" content="https://tapas-portfolio-theta.vercel.app/">
@@ -424,6 +426,7 @@ section {
 .premium-menu.active a:nth-child(5) { animation-delay: 0.25s; }
 .premium-menu.active a:nth-child(6) { animation-delay: 0.30s; }
 .premium-menu.active a:nth-child(7) { animation-delay: 0.35s; }
+.premium-menu.active a:nth-child(8) { animation-delay: 0.40s; }
 
 @keyframes menuReveal {
   to {
@@ -439,6 +442,7 @@ section {
 .premium-menu.active a:nth-child(5) { animation-delay: 0.25s; }
 .premium-menu.active a:nth-child(6) { animation-delay: 0.30s; }
 .premium-menu.active a:nth-child(7) { animation-delay: 0.35s; }
+.premium-menu.active a:nth-child(8) { animation-delay: 0.40s; }
 
 .premium-menu a:hover {
   background: var(--gold);
@@ -860,7 +864,7 @@ section {
     /* CRUNCH BITE ORIGINAL IMAGE SIZE */
 
 .portfolio .work:has(.crunch-image) {
-  align-self: start;
+    align-self: start;
 }
 
 .portfolio .crunch-image {
@@ -1273,6 +1277,29 @@ body {
     #work {
   scroll-margin-top: 100px;
     }
+  
+
+/* PORTFOLIO IMPROVEMENTS */
+:focus-visible{outline:2px solid var(--gold2);outline-offset:4px}
+section{scroll-margin-top:90px}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.skill-item{padding:20px;background:var(--panel);border:1px solid #29251f;border-radius:6px}
+.skill-item strong{display:block;color:var(--gold2);font-size:16px;margin-bottom:5px}
+.skill-item span{display:block;color:var(--muted);font-size:13px}
+.about-content p{line-height:1.85}
+.contactbox{display:grid;grid-template-columns:1fr 1.2fr;align-items:start}
+.contactbox form{display:grid;gap:9px;min-width:0}
+.contactbox label{font-size:13px;color:var(--gold2);margin-top:5px}
+.contactbox input,.contactbox textarea{width:100%;padding:12px 14px;background:#090909;color:var(--text);border:1px solid #393128;border-radius:4px;font:inherit}
+.contactbox input:focus,.contactbox textarea:focus{outline:1px solid var(--gold);border-color:var(--gold)}
+.contactbox textarea{resize:vertical}
+.contactbox form button{justify-self:start;margin-top:8px;cursor:pointer}
+.contactbox>.actions{grid-column:1/-1;margin-top:0}
+.work img{max-height:260px;object-fit:contain;background:#0b0b0b;border-radius:4px}
+@media(max-width:760px){.skills-grid{grid-template-columns:repeat(2,1fr)}.contactbox{grid-template-columns:1fr}.contactbox>.actions{grid-column:auto}}
+@media(max-width:600px){.hero{grid-template-columns:1fr;gap:22px;text-align:left}.hero-person{width:78%;max-width:300px;margin:auto}.person-visual{min-height:220px}.hero h1{font-size:clamp(38px,10vw,54px)}.hero p{font-size:15px}.hero .typing-text{font-size:14px}.hero .btn{font-size:12px;padding:11px 14px}.about-layout{grid-template-columns:1fr}.about-photo img{width:78%;max-width:300px;transform:none}.about-content p{font-size:15px}.skills-grid{grid-template-columns:1fr}.contactbox{padding:24px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
   </style>
 </head>
 <body>
@@ -1303,14 +1330,16 @@ body {
   <div class="premium-menu" id="premiumMenu">
     <a href="#home">Home</a>
     <a href="#about">About</a>
+    <a href="#skills">Capabilities</a>
     <a href="#services">Services</a>
     <a href="#work">Portfolio</a>
     <a href="#contact">Contact</a>
-    <a href="https://www.fiverr.com/tapasmandal00" target="_blank">Fiverr ↗</a>
-    <a href="https://www.instagram.com/_tapas_mandal_/" target="_blank">Instagram ↗</a>
+    <a href="https://www.fiverr.com/tapasmandal00" target="_blank" rel="noopener noreferrer">Fiverr ↗</a>
+    <a href="https://www.instagram.com/_tapas_mandal_/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
   </div>
   </header>
 
+  <main>
   <div class="wrap hero reveal" id="home">
 
   <div class="hero-text">
@@ -1322,7 +1351,7 @@ body {
       I am a <span id="typing"></span><span class="cursor">|</span>
     </p>
 
-    <p>Hi, I'm Tapas Mandal. I create clean, memorable and thoughtful designs that help brands and creators stand out.</p>
+    <p>Hi, I'm Tapas Mandal. I create thoughtful visual designs for brands, businesses and creators — from logos and social media graphics to promotional designs and book covers.</p>
 
     <div class="actions">
       <a class="btn primary" href="#work">Explore My Work</a>
@@ -1349,10 +1378,24 @@ body {
         <h2>Design with purpose.</h2>
       </div>
 
-      <p>I'm a graphic designer focused on creating attractive and useful visual content. From a brand's first impression to everyday social media communication, I aim to make every design clear, balanced and memorable.</p>
+      <p>I'm an independent graphic designer who enjoys turning ideas into clear, engaging visuals. I work on logo concepts, social media creatives, promotional advertisements, banners, business cards and book covers. My approach is simple: understand the purpose, keep the design clear, and give every project a polished visual finish.</p>
     </div>
 
   </div>
+  </section>
+
+  <section id="skills" class="reveal">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">What I can create</div><h2>Design Capabilities</h2><p>A selection of visual design areas featured in my work.</p></div>
+      <div class="skills-grid">
+        <div class="skill-item"><strong>Brand Identity</strong><span>Logo concepts and brand visuals</span></div>
+        <div class="skill-item"><strong>Social Media</strong><span>Posts, promotions and campaign creatives</span></div>
+        <div class="skill-item"><strong>Advertising</strong><span>Product ads and promotional banners</span></div>
+        <div class="skill-item"><strong>Print Design</strong><span>Business cards and event graphics</span></div>
+        <div class="skill-item"><strong>Publishing</strong><span>Book covers and ebook visuals</span></div>
+        <div class="skill-item"><strong>Custom Graphics</strong><span>Visuals shaped around project needs</span></div>
+      </div>
+    </div>
   </section>
 
     <section id="services" class="reveal">
@@ -1570,7 +1613,7 @@ closePreview.addEventListener("click", function() {
   preview.classList.remove("active");
 });
 
-preview.addEventListener("click", function(e) {
+preview.addEventListener("click", function(e)
   if (e.target === preview) {
     preview.classList.remove("active");
   }
@@ -1681,5 +1724,22 @@ document.addEventListener("DOMContentLoaded", function () {
   observer.observe(photo);
 });
   </script>
+
+<script>
+// Close the navigation menu after selecting a section or tapping outside it.
+(function(){
+  const menu=document.getElementById('premiumMenu');
+  const toggle=document.getElementById('menuToggle');
+  if(!menu||!toggle)return;
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('active');toggle.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open menu');}));
+  document.addEventListener('click',e=>{if(!menu.contains(e.target)&&!toggle.contains(e.target)){menu.classList.remove('active');toggle.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open menu');}});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){menu.classList.remove('active');toggle.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open menu');}});
+})();
+// Prevent the intro loader from remaining visible if a media asset stalls.
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader')?.classList.add('hide'),1800));
+setTimeout(()=>document.getElementById('loader')?.classList.add('hide'),5000);
+</script>
+
 </body>
 </html>
+  
