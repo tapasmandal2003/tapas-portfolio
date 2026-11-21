@@ -864,7 +864,7 @@ section {
     /* CRUNCH BITE ORIGINAL IMAGE SIZE */
 
 .portfolio .work:has(.crunch-image) {
-    align-self: start;
+  align-self: start;
 }
 
 .portfolio .crunch-image {
@@ -1296,6 +1296,8 @@ section{scroll-margin-top:90px}
 .contactbox form button{justify-self:start;margin-top:8px;cursor:pointer}
 .contactbox>.actions{grid-column:1/-1;margin-top:0}
 .work img{max-height:260px;object-fit:contain;background:#0b0b0b;border-radius:4px}
+.portfolio .project-note{color:var(--muted);font-size:13px;line-height:1.6;margin:10px 0 0;letter-spacing:0;text-transform:none}
+
 @media(max-width:760px){.skills-grid{grid-template-columns:repeat(2,1fr)}.contactbox{grid-template-columns:1fr}.contactbox>.actions{grid-column:auto}}
 @media(max-width:600px){.hero{grid-template-columns:1fr;gap:22px;text-align:left}.hero-person{width:78%;max-width:300px;margin:auto}.person-visual{min-height:220px}.hero h1{font-size:clamp(38px,10vw,54px)}.hero p{font-size:15px}.hero .typing-text{font-size:14px}.hero .btn{font-size:12px;padding:11px 14px}.about-layout{grid-template-columns:1fr}.about-photo img{width:78%;max-width:300px;transform:none}.about-content p{font-size:15px}.skills-grid{grid-template-columns:1fr}.contactbox{padding:24px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
@@ -1378,7 +1380,7 @@ section{scroll-margin-top:90px}
         <h2>Design with purpose.</h2>
       </div>
 
-      <p>I'm an independent graphic designer who enjoys turning ideas into clear, engaging visuals. I work on logo concepts, social media creatives, promotional advertisements, banners, business cards and book covers. My approach is simple: understand the purpose, keep the design clear, and give every project a polished visual finish.</p>
+      <p>I'm an independent graphic designer who enjoys turning ideas into clear, engaging visuals. I create logo concepts, social media creatives, promotional advertisements, banners, business cards and book covers. I use Canva in my design workflow and focus on clear communication, thoughtful layouts and a polished finish for every project.</p>
     </div>
 
   </div>
@@ -1424,48 +1426,56 @@ section{scroll-margin-top:90px}
     <img src="tm-logo.jpg.png" alt="Tapas Mandal TM Logo" style="width:100%;height:auto;display:block;">
     <strong>Tapas Mandal</strong>
 <span>PERSONAL BRAND IDENTITY</span>
+<p class="project-note">A minimal monogram identity built around the initials TM, with a refined black-and-gold visual style.</p>
   </div>
 
   <div class="work">
     <img src="crunch-bite.jpg.jpg" alt="Crunch Bite Product Advertisement" class="crunch-image">
     <strong>Crunch Bite</strong>
     <span>PRODUCT ADVERTISEMENT</span>
+    <p class="project-note">A bold snack promotion designed to make the product stand out through strong imagery and energetic composition.</p>
   </div>
 
   <div class="work">
     <img src="stanley-ad.png.png" alt="Stanley Product Advertisement" style="width:100%;height:auto;display:block;">
     <strong>Stanley</strong>
     <span>PRODUCT ADVERTISEMENT</span>
+    <p class="project-note">A product-focused advertisement concept highlighting the item with a clean, attention-led layout.</p>
   </div>
 
   <div class="work">
     <img src="brewnest-logo.jpg.jpg" alt="BrewNest Coffee Logo" style="width:100%;height:auto;display:block;">
     <strong>BrewNest</strong>
     <span>LOGO DESIGN</span>
+    <p class="project-note">A premium coffee brand logo concept combining a warm, memorable identity with a polished presentation.</p>
   </div>
 
   <div class="work">
     <img src="brewnest-promo.jpg.jpg" alt="BrewNest New Arrival Promotion" style="width:100%;height:auto;display:block;">
     <strong>BrewNest New Arrival</strong>
     <span>SOCIAL MEDIA ADVERTISEMENT</span>
+    <p class="project-note">A launch-style social creative created to introduce a new product and draw attention on social media.</p>
   </div>
 
   <div class="work">
     <img src="business-card.jpg.png" alt="Tapas Mandal Business Card" style="width:100%;height:auto;display:block;">
     <strong>Business Card</strong>
     <span>BUSINESS STATIONERY</span>
+    <p class="project-note">A coordinated personal business card design that keeps contact details and brand presentation clear.</p>
   </div>
 
   <div class="work">
     <img src="fashion-post-1.jpg.jpg" alt="ModeSix Fashion Promotion" style="width:100%;height:auto;display:block;">
     <strong>ModeSix Fashion</strong>
     <span>FASHION SOCIAL MEDIA POST</span>
+    <p class="project-note">A fashion-focused social post concept using product imagery and a contemporary promotional layout.</p>
   </div>
 
   <div class="work">
     <img src="fashion-post-2.jpg.jpg" alt="ModeSix New Collection Promotion" style="width:100%;height:auto;display:block;">
     <strong>New Collection</strong>
     <span>FASHION ADVERTISEMENT</span>
+    <p class="project-note">A collection announcement creative designed to showcase new arrivals in a clear, engaging format.</p>
   </div>
 
 </div>
@@ -1613,7 +1623,7 @@ closePreview.addEventListener("click", function() {
   preview.classList.remove("active");
 });
 
-preview.addEventListener("click", function(e)
+preview.addEventListener("click", function(e) {
   if (e.target === preview) {
     preview.classList.remove("active");
   }
@@ -1742,4 +1752,3 @@ setTimeout(()=>document.getElementById('loader')?.classList.add('hide'),5000);
 
 </body>
 </html>
-  
