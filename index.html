@@ -1034,7 +1034,11 @@ section {
 }
 
 .preview-info {
-  padding: 16px 8px 4px;
+  display: block;
+  padding: 18px 10px 8px;
+  text-align: left;
+  border-top: 1px solid rgba(212, 175, 55, 0.22);
+  margin-top: 14px;
 }
 
 .preview-info h2 {
@@ -1043,9 +1047,11 @@ section {
 }
 
 .preview-info p {
+  display: block;
   color: #ccc;
-  margin: 6px 0;
-  line-height: 1.6;
+  margin: 8px 0 0;
+  line-height: 1.7;
+  font-size: 15px;
 }
 
 #previewCategory {
@@ -1053,6 +1059,11 @@ section {
   font-size: 12px;
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+
+#previewDescription {
+  color: #e4ded3;
+  font-size: 15px;
 }
 
 #closePreview {
@@ -1604,37 +1615,6 @@ document.querySelectorAll(".reveal").forEach(element => {
     </div>
   </div>
 </div>
- <script>
-const preview = document.getElementById("imagePreview");
-const previewImage = document.getElementById("previewImage");
-const closePreview = document.getElementById("closePreview");
-
-document.querySelectorAll(".portfolio .work img").forEach(function(img) {
-  img.style.cursor = "zoom-in";
-
-  img.addEventListener("click", function() {
-    previewImage.src = img.src;
-    previewImage.alt = img.alt;
-    preview.classList.add("active");
-  });
-});
-
-closePreview.addEventListener("click", function() {
-  preview.classList.remove("active");
-});
-
-preview.addEventListener("click", function(e) {
-  if (e.target === preview) {
-    preview.classList.remove("active");
-  }
-});
-
-document.addEventListener("keydown", function(e) {
-  if (e.key === "Escape") {
-    preview.classList.remove("active");
-  }
-});
- </script> 
   <script>
 const preview = document.getElementById("imagePreview");
 const previewImage = document.getElementById("previewImage");
@@ -1651,13 +1631,15 @@ document.querySelectorAll(".portfolio .work img").forEach(function(img) {
     const card = img.closest(".work");
     const title = card.querySelector("strong");
     const category = card.querySelector("span");
+    const description = card.querySelector(".project-note");
 
     previewImage.src = img.src;
     previewImage.alt = img.alt;
     previewTitle.textContent = title ? title.textContent : "My Project";
     previewCategory.textContent = category ? category.textContent : "Graphic Design";
-    previewDescription.textContent =
-      "A creative design project by Tapas Mandal.";
+    previewDescription.textContent = description
+      ? description.textContent.trim()
+      : "A creative design project by Tapas Mandal.";
 
     preview.classList.add("active");
   });
