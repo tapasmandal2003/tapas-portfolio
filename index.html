@@ -1313,7 +1313,14 @@ section{scroll-margin-top:90px}
 @media(max-width:600px){.hero{grid-template-columns:1fr;gap:22px;text-align:left}.hero-person{width:78%;max-width:300px;margin:auto}.person-visual{min-height:220px}.hero h1{font-size:clamp(38px,10vw,54px)}.hero p{font-size:15px}.hero .typing-text{font-size:14px}.hero .btn{font-size:12px;padding:11px 14px}.about-layout{grid-template-columns:1fr}.about-photo img{width:78%;max-width:300px;transform:none}.about-content p{font-size:15px}.skills-grid{grid-template-columns:1fr}.contactbox{padding:24px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
-  </style>
+  
+/* PORTFOLIO CATEGORY FILTER */
+.portfolio-filters{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 24px}
+.portfolio-filters .filter-btn{border:1px solid #66502b;background:#111;color:var(--text);padding:10px 16px;border-radius:3px;font:inherit;font-size:13px;cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease}
+.portfolio-filters .filter-btn:hover,.portfolio-filters .filter-btn.active{background:var(--gold);border-color:var(--gold);color:#090909}
+.portfolio .work.filter-hidden{display:none!important}
+@media(max-width:480px){.portfolio-filters{gap:7px}.portfolio-filters .filter-btn{padding:9px 11px;font-size:12px}}
+</style>
 </head>
 <body>
   <video id="bg-video" autoplay muted loop playsinline>
@@ -1431,58 +1438,67 @@ section{scroll-margin-top:90px}
       <div class="eyebrow">Selected projects</div>
       <h2>My Portfolio</h2>
       <p>Explore my creative design work and projects.</p>
-    </div><div class="portfolio">
+    </div>
+    <div class="portfolio-filters" role="group" aria-label="Filter portfolio projects">
+      <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">All</button>
+      <button class="filter-btn" type="button" data-filter="logo" aria-pressed="false">Logo Design</button>
+      <button class="filter-btn" type="button" data-filter="social" aria-pressed="false">Social Media</button>
+      <button class="filter-btn" type="button" data-filter="banner" aria-pressed="false">Banner Design</button>
+      <button class="filter-btn" type="button" data-filter="business" aria-pressed="false">Business Card</button>
+      <button class="filter-btn" type="button" data-filter="advertisement" aria-pressed="false">Advertisement</button>
+    </div>
+    <div class="portfolio">
 
-  <div class="work">
+  <div class="work" data-category="logo">
     <img src="tm-logo.jpg.png" alt="Tapas Mandal TM Logo" style="width:100%;height:auto;display:block;">
     <strong>Tapas Mandal</strong>
 <span>PERSONAL BRAND IDENTITY</span>
 <p class="project-note">A minimal monogram identity built around the initials TM, with a refined black-and-gold visual style.</p>
   </div>
 
-  <div class="work">
+  <div class="work" data-category="advertisement">
     <img src="crunch-bite.jpg.jpg" alt="Crunch Bite Product Advertisement" class="crunch-image">
     <strong>Crunch Bite</strong>
     <span>PRODUCT ADVERTISEMENT</span>
     <p class="project-note">A bold snack promotion designed to make the product stand out through strong imagery and energetic composition.</p>
   </div>
 
-  <div class="work">
+  <div class="work" data-category="advertisement">
     <img src="stanley-ad.png.png" alt="Stanley Product Advertisement" style="width:100%;height:auto;display:block;">
     <strong>Stanley</strong>
     <span>PRODUCT ADVERTISEMENT</span>
     <p class="project-note">A product-focused advertisement concept highlighting the item with a clean, attention-led layout.</p>
   </div>
 
-  <div class="work">
+  <div class="work" data-category="logo">
     <img src="brewnest-logo.jpg.jpg" alt="BrewNest Coffee Logo" style="width:100%;height:auto;display:block;">
     <strong>BrewNest</strong>
     <span>LOGO DESIGN</span>
     <p class="project-note">A premium coffee brand logo concept combining a warm, memorable identity with a polished presentation.</p>
   </div>
 
-  <div class="work">
+  <div class="work" data-category="social">
     <img src="brewnest-promo.jpg.jpg" alt="BrewNest New Arrival Promotion" style="width:100%;height:auto;display:block;">
     <strong>BrewNest New Arrival</strong>
     <span>SOCIAL MEDIA ADVERTISEMENT</span>
     <p class="project-note">A launch-style social creative created to introduce a new product and draw attention on social media.</p>
   </div>
 
-  <div class="work">
+  <div class="work" data-category="business">
     <img src="business-card.jpg.png" alt="Tapas Mandal Business Card" style="width:100%;height:auto;display:block;">
     <strong>Business Card</strong>
     <span>BUSINESS STATIONERY</span>
     <p class="project-note">A coordinated personal business card design that keeps contact details and brand presentation clear.</p>
   </div>
 
-  <div class="work">
+  <div class="work" data-category="social">
     <img src="fashion-post-1.jpg.jpg" alt="ModeSix Fashion Promotion" style="width:100%;height:auto;display:block;">
     <strong>ModeSix Fashion</strong>
     <span>FASHION SOCIAL MEDIA POST</span>
     <p class="project-note">A fashion-focused social post concept using product imagery and a contemporary promotional layout.</p>
   </div>
 
-  <div class="work">
+  <div class="work" data-category="social">
     <img src="fashion-post-2.jpg.jpg" alt="ModeSix New Collection Promotion" style="width:100%;height:auto;display:block;">
     <strong>New Collection</strong>
     <span>FASHION ADVERTISEMENT</span>
@@ -1616,6 +1632,26 @@ document.querySelectorAll(".reveal").forEach(element => {
   </div>
 </div>
   <script>
+(function(){
+  const filterButtons = document.querySelectorAll(".portfolio-filters .filter-btn");
+  const projectCards = document.querySelectorAll(".portfolio .work");
+  filterButtons.forEach(function(button){
+    button.addEventListener("click", function(){
+      const selected = button.dataset.filter;
+      filterButtons.forEach(function(item){
+        const active = item === button;
+        item.classList.toggle("active", active);
+        item.setAttribute("aria-pressed", active ? "true" : "false");
+      });
+      projectCards.forEach(function(card){
+        const matches = selected === "all" || card.dataset.category === selected;
+        card.classList.toggle("filter-hidden", !matches);
+      });
+    });
+  });
+})();
+</script>
+<script>
 const preview = document.getElementById("imagePreview");
 const previewImage = document.getElementById("previewImage");
 const closePreview = document.getElementById("closePreview");
