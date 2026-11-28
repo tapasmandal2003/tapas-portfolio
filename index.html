@@ -1320,6 +1320,47 @@ section{scroll-margin-top:90px}
 .portfolio-filters .filter-btn:hover,.portfolio-filters .filter-btn.active{background:var(--gold);border-color:var(--gold);color:#090909}
 .portfolio .work.filter-hidden{display:none!important}
 @media(max-width:480px){.portfolio-filters{gap:7px}.portfolio-filters .filter-btn{padding:9px 11px;font-size:12px}}
+
+/* THEME SWITCH */
+.theme-toggle{border:1px solid var(--gold);border-radius:12px;padding:10px 13px;background:#17130d;color:var(--gold2);font-weight:700;cursor:pointer;transition:.3s;display:flex;align-items:center;gap:7px;margin-left:auto;margin-right:12px}
+.theme-toggle:hover{background:var(--gold);color:#090909;transform:translateY(-2px)}
+@media(max-width:480px){.theme-toggle{padding:9px 10px;margin-right:8px;font-size:12px}.premium-nav{gap:5px}}
+body[data-theme="light"]{--bg:#f6f2e9;--panel:#fffdf8;--gold:#a87825;--gold2:#825719;--text:#211b12;--muted:#665e53;--line:rgba(168,120,37,.28)}
+body[data-theme="light"]{background:var(--bg)!important;color:var(--text)}
+body[data-theme="light"] header{background:rgba(246,242,233,.94);border-bottom:1px solid #d9c9aa}
+body[data-theme="light"] .navlinks{color:#40382e}
+body[data-theme="light"] .premium-menu{background:#fffdf8;border-color:var(--gold);box-shadow:0 15px 40px #4a35151a}
+body[data-theme="light"] .premium-menu a{color:#72501b;border-color:#dfd2bb}
+body[data-theme="light"] .menu-toggle,body[data-theme="light"] .theme-toggle{background:#fffdf8;color:var(--gold)}
+body[data-theme="light"] .menu-toggle span{background:var(--gold)}
+body[data-theme="light"] .visual{background:radial-gradient(circle at 50% 35%,#e8d5b2 0,#f5ebd8 34%,#fffdf8 70%)}
+body[data-theme="light"] .monogram{color:var(--gold2);text-shadow:0 10px 40px #ffffff}
+body[data-theme="light"] section{border-top-color:#e4d7c3}
+body[data-theme="light"] .card,body[data-theme="light"] .skill-item{background:#fffdf8;border-color:#e3d5bf}
+body[data-theme="light"] .work{background:linear-gradient(145deg,#fffaf0,#f1e6d3);border-color:#d8bd8d}
+body[data-theme="light"] .portfolio .work{background:linear-gradient(145deg,#fffaf0,#f1e6d3)}
+body[data-theme="light"] .portfolio .work img{background:#f6f2e9!important}
+body[data-theme="light"] .contactbox{background:linear-gradient(120deg,#fff8eb,#f0e5d2);border-color:#d8bd8d}
+body[data-theme="light"] #contact form{background:linear-gradient(145deg,#fffaf0,#f1e6d3);border-color:#d8bd8d}
+body[data-theme="light"] #contact form input,body[data-theme="light"] #contact form textarea,body[data-theme="light"] .contactbox input,body[data-theme="light"] .contactbox textarea{background:#fff;color:#211b12;border-color:#d6c5a8}
+body[data-theme="light"] .image-preview{background:rgba(35,29,20,.92)}
+body[data-theme="light"] .preview-content{background:#fffdf8;color:#211b12}
+body[data-theme="light"] .preview-info p,body[data-theme="light"] #previewDescription{color:#40382e}
+body[data-theme="light"] .portfolio-filters .filter-btn{background:#fffdf8;color:#302719;border-color:#d8bd8d}
+body[data-theme="light"] .portfolio-filters .filter-btn:hover,body[data-theme="light"] .portfolio-filters .filter-btn.active{background:var(--gold);color:#fff}
+body[data-theme="light"] #backToTop{background:#fffdf8;color:var(--gold)}
+body[data-theme="light"] #loader{background:#f6f2e9}
+body[data-theme="light"] #loader h2{color:#a87825}
+body[data-theme="light"] #loader p{color:#665e53}
+body[data-theme="light"] #loader .loading-line{background:#dfd2bb}
+body[data-theme="light"] #loader .loading-line::after{background:#a87825}
+body[data-theme="light"] .hero::before{opacity:.10}
+body[data-theme="light"] #bg-video{opacity:.025;filter:brightness(1)}
+body[data-theme="light"] .btn.primary{background:var(--gold);color:#fff}
+body[data-theme="light"] .hero .actions .btn.primary{background:linear-gradient(135deg,#b98a43,#92651e);color:#fff}
+body[data-theme="light"] .hero .actions .btn:not(.primary){color:var(--gold2)}
+body[data-theme="light"] .hero .actions .btn:not(.primary):hover{background:var(--gold);color:#fff}
+
 </style>
 </head>
 <body>
@@ -1338,6 +1379,8 @@ section{scroll-margin-top:90px}
     <a class="brand" href="#home">
   <img src="logo.png.png" alt="Tapas Mandal Logo" style="height:40px;width:auto;display:block;">
 </a>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" title="Switch theme">☀️ <span>Light</span></button>
+
     <button class="menu-toggle" id="menuToggle"
       aria-label="Open menu" aria-expanded="false">
       <span></span>
@@ -1766,6 +1809,27 @@ document.addEventListener("DOMContentLoaded", function () {
 // Prevent the intro loader from remaining visible if a media asset stalls.
 window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader')?.classList.add('hide'),1800));
 setTimeout(()=>document.getElementById('loader')?.classList.add('hide'),5000);
+</script>
+
+
+<script>
+(function(){
+ const btn=document.getElementById('themeToggle');
+ if(!btn)return;
+ function apply(theme){
+  document.body.setAttribute('data-theme',theme);
+  const light=theme==='light';
+  btn.innerHTML=light?'🌙 <span>Dark</span>':'☀️ <span>Light</span>';
+  btn.setAttribute('aria-label',light?'Switch to dark mode':'Switch to light mode');
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content',light?'#f6f2e9':'#090909');
+ }
+ let saved='dark';try{saved=localStorage.getItem('portfolio-theme')||'dark'}catch(e){}
+ apply(saved);
+ btn.addEventListener('click',()=>{
+  const next=document.body.getAttribute('data-theme')==='light'?'dark':'light';
+  apply(next);try{localStorage.setItem('portfolio-theme',next)}catch(e){}
+ });
+})();
 </script>
 
 </body>
